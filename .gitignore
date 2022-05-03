@@ -50,3 +50,19 @@ compile_commands.json
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+
+# npm
+node_modules
+package-lock.json
+*.log
+*.gz
+
+# Coveralls
+.nyc_output
+coverage
+
+# Benchmarking
+benchmarks/graphs
+
+# ignore additional files using core.excludesFile
+# https://git-scm.com/docs/gitignore
