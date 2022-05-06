@@ -29,3 +29,29 @@ void MainWindow::on_pushButton_clicked()
     }
 }
 
+
+
+
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QSqlQueryModel *model = new QSqlQueryModel;
+    model->setQuery("SELECT id, branch, model FROM car");
+    model->setHeaderData(0, Qt::Horizontal, tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, tr("branch"));
+    model->setHeaderData(2, Qt::Horizontal, tr("model"));
+
+    QTableView  *view = new QTableView;
+    view->setModel(model);
+    view->show();
+
+
+}
+
+
+void MainWindow::on_tableView_activated(const QModelIndex &index)
+{
+
+}
+
