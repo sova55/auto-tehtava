@@ -52,7 +52,28 @@ router.post('/delete/:id', function (req,res, next) {
 
 
 
- 
+// update car 
+
+router.post('/edit/:id', function (req,res, next) {
+
+    var carData = {
+        branch: req.body.branch,
+        model: req.body.model
+    }
+
+    db.query('UPDATE car SET ? WHERE id = ' + req.params.id, carData,  function (err) {
+        if (err) throw err;
+        res.json({
+            status:200,
+            message: "Car edited successfully"
+        })
+    })
+});
+
+
+
+//create new car
+
 router.post('/new', function(req,res) {
     let sql = `INSERT INTO car(branch, model) VALUES (?)`;
 

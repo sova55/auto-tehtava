@@ -16,12 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     db.setDatabaseName("car_db");
     db.open();
 
-  //  if(db.open()) {
-  //      QMessageBox::information(this, "Connection", "Database Connected Successfully");
-   // } else {
-    //    QMessageBox::information(this, "Not Connected", "Database is not connected");
-   // }
-
 }
 
 MainWindow::~MainWindow()

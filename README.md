@@ -3,6 +3,7 @@
 //DB creation
 
 CREATE DATABASE car_db;
+
 USE car_db;
 
 CREATE TABLE car(
