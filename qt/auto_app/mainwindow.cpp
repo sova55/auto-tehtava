@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "qtableview.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -6,28 +7,30 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
 
 
-void MainWindow::on_pushButton_clicked()
-{
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("127.0.0.1");
     db.setUserName("root");
     db.setPassword("password");
     db.setDatabaseName("car_db");
+    db.open();
 
-    if(db.open()) {
-        QMessageBox::information(this, "Connection", "Database Connected Successfully");
-    } else {
-        QMessageBox::information(this, "Not Connected", "Database is not connected");
-    }
+  //  if(db.open()) {
+  //      QMessageBox::information(this, "Connection", "Database Connected Successfully");
+   // } else {
+    //    QMessageBox::information(this, "Not Connected", "Database is not connected");
+   // }
+
 }
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+
+}
+
+
 
 
 
@@ -50,8 +53,24 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-void MainWindow::on_tableView_activated(const QModelIndex &index)
+
+
+
+
+
+void MainWindow::on_pushButton_clicked()
 {
+
+    QString lineEdit0 = ui->lineEdit->text();
+    QString lineEdit1 = ui->lineEdit_2->text();
+    QLineEdit();
+
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO car (branch, model) VALUES (:branch, :model)");
+    query.bindValue(":branch", lineEdit0);
+    query.bindValue(":model", lineEdit1);
+    query.exec();
 
 }
 
